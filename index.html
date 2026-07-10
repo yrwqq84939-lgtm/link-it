@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINK-IT 인지 훈련 센터</title>
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --bg-color: #F5F7FA;
+            --card-bg: #FFFFFF;
+            --text-main: #333333;
+            --text-muted: #777777;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-main);
+        }
+
+        header {
+            text-align: center;
+            margin: 40px 20px 20px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #357ABD;
+        }
+
+        /* 준비중인 카드 스타일 */
+        .card.disabled {
+            opacity: 0.6;
+        }
+
+        .card.disabled .btn {
+            background-color: #A0AAB5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>LINK-IT</h1>
+        <p>안녕! 오늘은 어떤 게임 실험을 시작해볼까?</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <div>
+                <div class="card-icon">👛</div>
+                <h2>스마트지갑 게임</h2>
+                <p>정해진 예산 안에서 물건을 고르고 계산하며 계획을 세워봐요.</p>
+            </div>
+            <a href="https://service-568538764033.asia-east1.run.app" target="_blank" class="btn">게임 시작하기</a>
+        </div>
+
+        <div class="card disabled">
+            <div>
+                <div class="card-icon">🛑</div>
+                <h2>브레이크를 밟아라!</h2>
+                <p>행동하기 전에 잠깐 멈추고 생각하는 브레이크 힘을 키워요.</p>
+            </div>
+            <button class="btn" disabled>준비 중</button>
+        </div>
+
+        <div class="card disabled">
+            <div>
+                <div class="card-icon">🗣️</div>
+                <h2>잰말놀이 마스터</h2>
+                <p>복잡한 문장을 차분하게 소리 내어 읽으며 집중해 봐요.</p>
+            </div>
+            <button class="btn" disabled>준비 중</button>
+        </div>
+    </div>
+
+</body>
+</html>
