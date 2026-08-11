@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LINK-IT 인지 훈련 센터</title>
 
-    <!-- Supabase JS SDK 불러오기 -->
+    <!-- Supabase SDK 불러오기 -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <style>
@@ -46,7 +46,6 @@
             margin: 0;
         }
 
-        /* 사용자 이름 입력 영역 추가 */
         .user-input-container {
             margin: 15px 0 25px 0;
             display: flex;
@@ -127,15 +126,6 @@
         .btn:hover {
             background-color: #357ABD;
         }
-
-        .card.disabled {
-            opacity: 0.6;
-        }
-
-        .card.disabled .btn {
-            background-color: #A0AAB5;
-            cursor: not-allowed;
-        }
     </style>
 </head>
 <body>
@@ -145,13 +135,11 @@
         <p>안녕! 오늘은 어떤 게임 실험을 시작해볼까?</p>
     </header>
 
-    <!-- 플레이어/환자 이름 입력 창 -->
     <div class="user-input-container">
-        <input type="text" id="userNameInput" placeholder="이름 또는 ID를 입력하세요">
+        <input type="text" id="userNameInput" placeholder="이름 또는 ID를 입력하세요" value="연규진">
     </div>
 
     <div class="container">
-        <!-- 1번 게임: 스마트지갑 -->
         <div class="card">
             <div>
                 <div class="card-icon">👛</div>
@@ -161,7 +149,6 @@
             <button class="btn" onclick="startGame('스마트지갑', 'https://remix-studio-6122.ai.studio')">게임 시작하기</button>
         </div>
 
-        <!-- 2번 게임: 영수증 두뇌 트레이닝 -->
         <div class="card">
             <div>
                 <div class="card-icon">🧾</div>
@@ -171,7 +158,6 @@
             <button class="btn" onclick="startGame('영수증 두뇌 트레이닝', 'https://service-18544.ai.studio')">게임 시작하기</button>
         </div>
 
-        <!-- 3번 게임: 링크잇 두뇌 마트 -->
         <div class="card">
             <div>
                 <div class="card-icon">🛒</div>
@@ -181,7 +167,6 @@
             <button class="btn" onclick="startGame('링크잇 두뇌 마트', 'https://link-it-brain-market.ai.studio')">게임 시작하기</button>
         </div>
 
-        <!-- 4번 게임: 광고 기다리기 -->
         <div class="card">
             <div>
                 <div class="card-icon">📺</div>
@@ -193,39 +178,12 @@
     </div>
 
     <script>
-        // 1. Supabase 접속 정보 설정 (본인의 Project Settings > API 정보로 변경해주세요)
-        const SUPABASE_URL = 'https://ewiyimfizzfgpnedjbpz.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_U2SQNNqbJeHZmBnTA07t-Q_nlVuh4Mq';
-
-        // 2. Supabase 클라이언트 초기화
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-        // 3. 게임 시작 및 Supabase 저장 함수
-        async function startGame(gameType, gameUrl) {
+        function startGame(gameType, gameUrl) {
             const userName = document.getElementById('userNameInput').value.trim() || '익명';
-
-            try {
-                // Supabase link-it 테이블에 저장
-                const { data, error } = await supabaseClient
-                    .from('link-it')
-                    .insert([
-                        {
-                            game_type: gameType,
-                            user_name: userName
-                        }
-                    ]);
-
-                if (error) {
-                    console.error('Supabase 저장 실패:', error.message);
-                } else {
-                    console.log('Supabase 저장 성공:', data);
-                }
-            } catch (err) {
-                console.error('오류 발생:', err);
-            } finally {
-                // 데이터 저장 후 새 탭에서 게임 페이지 열기
-                window.open(gameUrl, '_blank');
-            }
+            
+            // 유저 이름을 브라우저에 저장한 후 게임 사이트로 이동
+            localStorage.setItem('linkit_user_name', userName);
+            window.open(gameUrl, '_blank');
         }
     </script>
 </body>
