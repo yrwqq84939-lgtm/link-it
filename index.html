@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <style>
+        /* 기존 스타일과 동일 */
         :root {
             --primary-color: #4A90E2;
             --bg-color: #F5F7FA;
@@ -101,7 +102,7 @@
             height: 80px;
         }
 
-        /* 이미지 아이콘 전용 스타일 추가 */
+        /* 이미지 아이콘 전용 스타일 */
         .card-icon-img {
             width: 80px;
             height: 80px;
@@ -187,16 +188,17 @@
             <button class="btn" onclick="startGame('광고 기다리기', 'https://fascinating-chimera-51f01a.netlify.app/')">게임 시작하기</button>
         </div>
 
-        <!-- 새로 추가된 링키의 재정 관리 카드 -->
+        <!-- 새로 추가된 링키의 재정 관리 카드 (방법 2: 새로운 임시 외부 URL 적용) -->
         <div class="card">
             <div>
                 <div class="card-icon">
-                    <img src="https://i.ibb.co/3s4yX0T/linki-coin.png" alt="링키 캐릭터" class="card-icon-img" onerror="this.src='🪙'">
+                    <!-- 다른 임시 외부 URL로 교체 -->
+                    <img src="https://i.ibb.co/6P6X7Vf/linki-coin.png" alt="링키 캐릭터" class="card-icon-img" onerror="this.src='🪙'">
                 </div>
                 <h2>링키의 재정 관리</h2>
                 <p>귀여운 링키와 함께 올바른 소비 습관을 기르고 재정을 관리해 봐요.</p>
             </div>
-            <button class="btn" onclick="startGame('링키의 재정 관리', 'https://adorable-kelpie-8d5dc3.netlify.app/')">게임 시작하기</button>
+            <button class="btn" onclick="startGame('링키의 재정 관리', 'https://adorable-kelpie-8d5dc3.netlifyapp/')">게임 시작하기</button>
         </div>
     </div>
 
