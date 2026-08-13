@@ -95,6 +95,17 @@
         .card-icon {
             font-size: 4rem;
             margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+        }
+
+        /* 이미지 아이콘 전용 스타일 추가 */
+        .card-icon-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
         }
 
         .card h2 {
@@ -174,6 +185,18 @@
                 <p>지루한 광고를 차분하게 기다리며 충동을 조절하고 인내심을 길러요.</p>
             </div>
             <button class="btn" onclick="startGame('광고 기다리기', 'https://fascinating-chimera-51f01a.netlify.app/')">게임 시작하기</button>
+        </div>
+
+        <!-- 새로 추가된 링키의 재정 관리 카드 -->
+        <div class="card">
+            <div>
+                <div class="card-icon">
+                    <img src="https://i.ibb.co/3s4yX0T/linki-coin.png" alt="링키 캐릭터" class="card-icon-img" onerror="this.src='🪙'">
+                </div>
+                <h2>링키의 재정 관리</h2>
+                <p>귀여운 링키와 함께 올바른 소비 습관을 기르고 재정을 관리해 봐요.</p>
+            </div>
+            <button class="btn" onclick="startGame('링키의 재정 관리', 'https://adorable-kelpie-8d5dc3.netlify.app/')">게임 시작하기</button>
         </div>
     </div>
 
