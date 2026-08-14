@@ -9,7 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <style>
-        /* 기존 스타일과 동일 */
         :root {
             --primary-color: #4A90E2;
             --bg-color: #F5F7FA;
@@ -31,7 +30,7 @@
 
         header {
             text-align: center;
-            margin: 40px 20px 10px 20px;
+            margin: 40px 20px 20px 20px;
         }
 
         header h1 {
@@ -45,26 +44,6 @@
             font-size: 1.2rem;
             color: var(--text-muted);
             margin: 0;
-        }
-
-        .user-input-container {
-            margin: 15px 0 25px 0;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .user-input-container input {
-            padding: 12px 16px;
-            font-size: 1rem;
-            border: 2px solid #DDD;
-            border-radius: 10px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .user-input-container input:focus {
-            border-color: var(--primary-color);
         }
 
         .container {
@@ -147,10 +126,6 @@
         <p>안녕! 오늘은 어떤 게임 실험을 시작해볼까?</p>
     </header>
 
-    <div class="user-input-container">
-        <input type="text" id="userNameInput" placeholder="이름 또는 ID를 입력하세요" value="연규진">
-    </div>
-
     <div class="container">
         <div class="card">
             <div>
@@ -188,11 +163,9 @@
             <button class="btn" onclick="startGame('광고 기다리기', 'https://fascinating-chimera-51f01a.netlify.app/')">게임 시작하기</button>
         </div>
 
-        <!-- 새로 추가된 링키의 재정 관리 카드 (방법 1: 상대 경로 적용) -->
         <div class="card">
             <div>
                 <div class="card-icon">
-                    <!-- GitHub에 올린 이미지 파일 이름으로 수정 -->
                     <img src="linki_coin.png" alt="링키 캐릭터" class="card-icon-img" onerror="this.src='🪙'">
                 </div>
                 <h2>링키의 재정 관리</h2>
@@ -204,13 +177,9 @@
 
     <script>
         function startGame(gameType, gameUrl) {
-            const userName = document.getElementById('userNameInput').value.trim() || '익명';
-            
-            // 유저 이름을 브라우저에 저장한 후 게임 사이트로 이동
-            localStorage.setItem('linkit_user_name', userName);
+            // 바로 새 탭에서 해당 게임 링크로 이동
             window.open(gameUrl, '_blank');
         }
     </script>
 </body>
 </html>
-
